@@ -6,7 +6,7 @@
 #    By: jhoekstr <jhoekstr@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/02/25 18:32:03 by jhoekstr      #+#    #+#                  #
-#    Updated: 2022/10/05 14:02:30 by jhoekstr      ########   odam.nl          #
+#    Updated: 2022/11/28 18:21:41 by jhoekstr      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,21 +76,21 @@ CC = gcc
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar -rc $(NAME) $^
+	@ar -rc $(NAME) $^
 
 bonus: $(BONUS_OBJ) $(OBJ)
-	ar -rc $(NAME) $^
+	@ar -rc $(NAME) $^
 
 %.o: %.c
-	$(CC) $(CFLAGS) -o $@ -c $^
+	@$(CC) $(CFLAGS) -o $@ -c $^
 
 test: $(NAME) main.c
 	$(CC) $(CFLAGS) -o $@ $^
 
 clean:
-	$(RM) $(OBJ) $(BONUS_OBJ)
+	@$(RM) $(OBJ) $(BONUS_OBJ)
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re:	fclean all

@@ -6,7 +6,7 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/03 14:43:32 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2022/11/10 18:13:04 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2022/11/28 17:26:32 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 typedef struct info
 {
 	int	*all_nbrs;
+	int	*copy;
 }	t_info;
 
 typedef struct stack
@@ -40,4 +41,5 @@ bool	nbr_check(char *str);
 bool	dup_check(int *nbrs, int count);
 void	parsing(t_info *info, int argc, char **argv);
 void	return_error(t_info *info, char *message);
+void	bubblesort(int *nbrs, int argc);
 #endif

@@ -5,20 +5,8 @@
 #                                                      +:+                     #
 #    By: jhoekstr <jhoekstr@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
-#    Created: 2022/11/03 14:44:46 by jhoekstr      #+#    #+#                  #
-#    Updated: 2022/11/10 18:20:01 by jhoekstr      ########   odam.nl          #
-#                                                                              #
-# **************************************************************************** #
-
-# **************************************************************************** #
-#                                                                              #
-#                                                         ::::::::             #
-#    Makefile                                           :+:    :+:             #
-#                                                      +:+                     #
-#    By: jhoekstr <jhoekstr@student.codam.nl>         +#+                      #
-#                                                    +#+                       #
 #    Created: 2022/09/05 15:18:40 by jhoekstr      #+#    #+#                  #
-#    Updated: 2022/10/31 15:59:02 by jhoekstr      ########   odam.nl          #
+#    Updated: 2022/11/28 18:22:59 by jhoekstr      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,21 +18,24 @@ SRCS = main.c \
 
 OBJ = $(SRCS:%.c=%.o)
 
-CFLAGS = -Wall -Wextra -Werror -Imlx -g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 
 HEADERS	= -I libft
 
 CC = gcc
+RM = rm -rf
 
-LIBFT = LIBFT/libft.a
+LIBFT_DIR = ./libft
+LIBFT = $(LIBFT_DIR)/libft.a
 
+.PHONY: all, clean, fclean, re, libft
 
 all: $(NAME)
 
 libft:
-	@$(MAKE) -C $(LIBFT)
+	@$(MAKE) -C $(LIBFT_DIR)
 
-$(NAME): $(OBJ) 
+$(NAME): $(OBJ) libft
 	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(HEADERS) -o $(NAME)
 	
 %.o: %.c
@@ -52,12 +43,10 @@ $(NAME): $(OBJ)
 
 clean:
 	$(RM) $(OBJ)
-	@$(MAKE) -C $(NAME) clean
+	@$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean
 	$(RM) $(NAME)
-	@$(MAKE) -C $(NAME) fclean
+	@$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
-
-.PHONY: all, clean, fclean, re, libft
