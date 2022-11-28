@@ -6,7 +6,7 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/03 14:59:37 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2022/11/10 18:14:38 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2022/11/28 19:02:39 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,4 +19,5 @@ int	main(int argc, char **argv)
 	parsing(&info, argc, argv);
 	// t_stack	*stack_a;
 	// t_stack	*stack_b;
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/03 15:45:40 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2022/11/28 18:12:16 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2022/11/28 19:13:10 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,9 @@ void	bubblesort(int *nbrs, int argc)
 
 	i = 0;
 	j = 0;
-	while (i < (argc - 1))
+	while (i < argc )
 	{
-		while (j + 1 < (argc - 1))
+		while (j + 1 < argc)
 		{
 			if (nbrs[j] > nbrs[j + 1])
 			{
@@ -99,6 +99,7 @@ void	bubblesort(int *nbrs, int argc)
 		i++;
 		j = 0;
 	}
+
 }
 
 static void value_nbrs( t_info *info, int argc)
@@ -108,11 +109,12 @@ static void value_nbrs( t_info *info, int argc)
 
 	info->copy = copy_nbrs(info, argc - 1);
 	bubblesort(info->copy, argc - 1);
+
 	i = 0;
-	while (i < argc)
+	while (i < argc - 1)
 	{
 		j = 0;
-		while (j < argc)
+		while (j < argc - 1)
 		{
 			if (info->all_nbrs[i] == info->copy[j])
 			{
@@ -123,8 +125,9 @@ static void value_nbrs( t_info *info, int argc)
 		}
 
 		i++;
+		j = 0;
 	}
-
+	free(info->copy);
 }
 
 void	parsing(t_info *info, int argc, char **argv)
@@ -139,20 +142,22 @@ void	parsing(t_info *info, int argc, char **argv)
 	if (!info->all_nbrs)
 		return_error(info, "Malloc failed. Oops.");
 	i = 1;
+	j = 0;
 	while (i < argc)
 	{
 		if (!nbr_check(argv[i]))
 			return_error(info, "Not a number.");
-		info->all_nbrs[i - 1] = ft_atoi(argv[i]);
+		info->all_nbrs[j] = ft_atoi(argv[i]);
 		i++;
+		j++;
 	}
 	if (!dup_check(info->all_nbrs, (argc - 1)))
 		return_error(info, "Found a sussy dupe.");
 	value_nbrs(info, argc);
 	j = 0;
-	while (info->all_nbrs[j])
+	while (j < argc - 1)
 	{	
-		ft_printf("%s\n", info->all_nbrs);
+		ft_printf("%d\n", info->all_nbrs[j]);
 		j++;
 	}
 
