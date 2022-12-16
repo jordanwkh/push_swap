@@ -6,7 +6,7 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/03 15:45:40 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2022/11/28 19:13:10 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2022/12/12 18:08:24 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	bubblesort(int *nbrs, int argc)
 
 	i = 0;
 	j = 0;
-	while (i < argc )
+	while (i < argc)
 	{
 		while (j + 1 < argc)
 		{
@@ -99,7 +99,6 @@ void	bubblesort(int *nbrs, int argc)
 		i++;
 		j = 0;
 	}
-
 }
 
 static void value_nbrs( t_info *info, int argc)
@@ -109,7 +108,6 @@ static void value_nbrs( t_info *info, int argc)
 
 	info->copy = copy_nbrs(info, argc - 1);
 	bubblesort(info->copy, argc - 1);
-
 	i = 0;
 	while (i < argc - 1)
 	{
@@ -123,7 +121,6 @@ static void value_nbrs( t_info *info, int argc)
 			}
 			j++;
 		}
-
 		i++;
 		j = 0;
 	}
@@ -160,5 +157,4 @@ void	parsing(t_info *info, int argc, char **argv)
 		ft_printf("%d\n", info->all_nbrs[j]);
 		j++;
 	}
-
 }
