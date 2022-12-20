@@ -6,7 +6,7 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/05 19:11:16 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2022/12/15 19:07:30 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2022/12/19 18:37:40 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,18 @@ t_stack	*start_list( int *arr, int argc)
 	}
 	stack_a->next = head;
 	stack_a->next->prev = stack_a;
+}
+
+bool	check_sort(t_stack *stack)
+{
+	t_stack	*head;
+
+	head = stack;
+	while (stack->next != head)
+	{
+		if (stack->nbrs > stack->next)
+			return (false);
+		stack = stack->next;
+	}
+	return (true);
 }

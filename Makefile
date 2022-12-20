@@ -6,7 +6,7 @@
 #    By: jhoekstr <jhoekstr@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/05 15:18:40 by jhoekstr      #+#    #+#                  #
-#    Updated: 2022/11/28 18:22:59 by jhoekstr      ########   odam.nl          #
+#    Updated: 2022/12/19 18:37:28 by jhoekstr      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,8 @@ NAME = push_swap
 
 SRCS = main.c \
 	checker.c \
+	lists.c\
+	swaps.c\
 
 
 OBJ = $(SRCS:%.c=%.o)

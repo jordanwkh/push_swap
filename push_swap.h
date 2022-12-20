@@ -6,7 +6,7 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/03 14:43:32 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2022/12/12 18:16:41 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2022/12/19 18:36:17 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,5 @@ bool	dup_check(int *nbrs, int count);
 void	parsing(t_info *info, int argc, char **argv);
 void	return_error(t_info *info, char *message);
 void	bubblesort(int *nbrs, int argc);
+bool	check_sort(t_stack *stack);
 #endif
