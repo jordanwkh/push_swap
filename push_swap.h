@@ -6,7 +6,7 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/03 14:43:32 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2022/12/21 18:33:52 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2023/01/09 15:07:30 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,10 @@ void	parsing(t_info *info, int argc, char **argv);
 void	return_error(t_info *info, char *message);
 void	bubblesort(int *nbrs, int argc);
 bool	check_sort(t_stack *stack);
+void	swapping(char c, t_stack *stack);
+void	two_swaps(t_stack stack_a, t_stack stack_b);
+void	rotate(char c, t_stack **stack);
+void	duo_rotate(t_stack **stack_a, t_stack **stack_b);
+void	rev_rotate(char c, t_stack **stack);
+void	duo_rev_rotate(t_stack **stack_a, t_stack **stack_b);
 #endif

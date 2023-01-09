@@ -6,13 +6,13 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/19 18:36:56 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2022/12/20 17:18:00 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2023/01/09 15:07:40 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swapping(char c t_stack *stack)
+void	swapping(char c, t_stack *stack)
 {
 	int	temp;
 

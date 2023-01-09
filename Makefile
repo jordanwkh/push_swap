@@ -6,7 +6,7 @@
 #    By: jhoekstr <jhoekstr@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/05 15:18:40 by jhoekstr      #+#    #+#                  #
-#    Updated: 2022/12/19 18:37:28 by jhoekstr      ########   odam.nl          #
+#    Updated: 2023/01/09 15:06:19 by jhoekstr      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,8 @@ SRCS = main.c \
 	checker.c \
 	lists.c\
 	swaps.c\
+	rotations.c\
+	pushing.c\
 
 
 OBJ = $(SRCS:%.c=%.o)
