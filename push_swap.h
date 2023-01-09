@@ -6,7 +6,7 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/03 14:43:32 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2022/12/19 18:36:17 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2022/12/21 18:33:52 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct stack
 	int					nbrs;
 	struct stack		*next;
 	struct stack		*prev;
+	struct stack		**stack_a;
 }	t_stack;
 
 bool	nbr_check(char *str);
