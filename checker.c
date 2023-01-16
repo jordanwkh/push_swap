@@ -6,7 +6,7 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/03 15:45:40 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2022/12/12 18:08:24 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2023/01/10 19:25:47 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ static void value_nbrs( t_info *info, int argc)
 	free(info->copy);
 }
 
-void	parsing(t_info *info, int argc, char **argv)
+int	*parsing(t_info *info, int argc, char **argv)
 {
 	int		i;
 	int		j;
@@ -157,4 +157,5 @@ void	parsing(t_info *info, int argc, char **argv)
 		ft_printf("%d\n", info->all_nbrs[j]);
 		j++;
 	}
+	return (info->all_nbrs);
 }

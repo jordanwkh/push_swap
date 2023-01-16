@@ -6,7 +6,7 @@
 #    By: jhoekstr <jhoekstr@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/05 15:18:40 by jhoekstr      #+#    #+#                  #
-#    Updated: 2023/01/09 15:06:19 by jhoekstr      ########   odam.nl          #
+#    Updated: 2023/01/11 16:40:46 by jhoekstr      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = push_swap
 
 SRCS = main.c \
 	checker.c \
-	lists.c\
+	list.c\
 	swaps.c\
 	rotations.c\
 	pushing.c\

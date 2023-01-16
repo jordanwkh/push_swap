@@ -6,7 +6,7 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/19 18:36:56 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2023/01/09 15:07:40 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2023/01/16 19:10:22 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	swapping(char c, t_stack *stack)
 {
-	int	temp;
+	int		temp;
 
 	if (stack && stack->next != stack)
 	{
@@ -28,7 +28,7 @@ void	swapping(char c, t_stack *stack)
 
 void	two_swaps(t_stack stack_a, t_stack stack_b)
 {
-	swapping(s, stack_a);
-	swapping(s, stack_b);
-	ft_printf("%c\n", ss);
+	swapping('s', &stack_a);
+	swapping('s', &stack_b);
+	ft_printf("ss\n");
 }
