@@ -6,7 +6,7 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/05 19:11:16 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2023/01/19 18:44:24 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2023/03/03 18:21:10 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_stack	*start_list(t_info *info, int *arr, int nbrs_count)
 
 	stack_a = lstnew(arr[0]);
 	if (!stack_a)
-		return_error(info, "arr");
+		return_error(info);
 	head = stack_a;
 	i = 1;
 	while (i < nbrs_count)
@@ -44,8 +44,6 @@ t_stack	*start_list(t_info *info, int *arr, int nbrs_count)
 	}
 	stack_a->next = head;
 	stack_a->next->prev = stack_a;
-	printf("heyy %d\n", head->nbrs);
-	// listtest(head, 5);
 	return (head);
 }
 
@@ -63,16 +61,16 @@ bool	check_sort(t_stack *stack)
 	return (true);
 }
 
-void	listtest(t_stack *stack, int nbrlist)
-{
-	int	i;
+// void	listtest(t_stack *stack, int nbrlist)
+// {
+// 	int	i;
 
-	i = 1;
-	while (i <= nbrlist)
-	{
-		printf("nbr %d = %d\n", i, stack->nbrs);
-		i++;
-		stack = stack->next;
-	}	
-	printf("\n");
-}
+// 	i = 1;
+// 	while (i <= nbrlist)
+// 	{
+// 		printf("node[%d]\t\t%d\n", i, stack->nbrs);
+// 		i++;
+// 		stack = stack->next;
+// 	}	
+// 	printf("\n");
+// }

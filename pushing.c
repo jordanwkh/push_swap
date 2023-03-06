@@ -6,7 +6,7 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/21 17:58:41 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2023/01/16 19:20:06 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2023/03/03 18:20:06 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,24 @@ static t_stack	*freenode(t_stack **stack)
 
 void	push(char c, t_stack **src, t_stack **dest)
 {
-	t_stack	push_node;
+	t_stack	*push_node;
 
-	push_node = *freenode(src);
-	if (dest == NULL)
+	if (!*src || !dest)
+		return ;
+	push_node = freenode(src);
+	if (!*dest)
 	{
-		push_node.next = &push_node;
-		push_node.prev = &push_node;
-		*dest = &push_node;
+		push_node->next = push_node;
+		push_node->prev = push_node;
+		*dest = push_node;
 	}
 	else
 	{
-		push_node.next = *dest;
-		push_node.prev = (*dest)->prev;
-		(*dest)->prev->next = &push_node;
-		(*dest)->prev = &push_node;
-		*dest = &push_node;
+		push_node->next = *dest;
+		push_node->prev = (*dest)->prev;
+		(*dest)->prev->next = push_node;
+		(*dest)->prev = push_node;
+		*dest = push_node;
 	}
 	ft_printf("p%c\n", c);
 }

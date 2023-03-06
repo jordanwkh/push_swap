@@ -6,7 +6,7 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/03 15:45:40 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2023/01/19 18:18:36 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2023/03/02 20:41:43 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ bool	nbr_check(char *str)
 		if (!str[i])
 			return (false);
 	}
+	if (str[i] == '\0')
+		return (false);
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))
@@ -52,28 +54,11 @@ bool	dup_check(int *nbrs, int count)
 	return (true);
 }
 
-void	return_error(t_info *info, char *message)
+void	return_error(t_info *info)
 {
 	free(info->all_nbrs);
-	ft_printf("%s\n", message);
+	ft_putendl_fd("Error", 2);
 	exit(1);
-}
-
-static int	*copy_nbrs(t_info *info, int size)
-{
-	int		i;
-	int		*copy;
-
-	copy = (int *)malloc(sizeof(int) * size);
-	if (!copy)
-		return_error(info, "Malloc failed.");
-	i = 0;
-	while (i < size)
-	{
-		copy[i] = info->all_nbrs[i];
-		i++;
-	}
-	return (copy);
 }
 
 void	bubblesort(int *nbrs, int argc)
@@ -99,63 +84,4 @@ void	bubblesort(int *nbrs, int argc)
 		i++;
 		j = 0;
 	}
-}
-
-static void value_nbrs( t_info *info, int argc)
-{
-	int	i;
-	int	j;
-
-	info->copy = copy_nbrs(info, argc - 1);
-	bubblesort(info->copy, argc - 1);
-	i = 0;
-	while (i < argc - 1)
-	{
-		j = 0;
-		while (j < argc - 1)
-		{
-			if (info->all_nbrs[i] == info->copy[j])
-			{
-				info->all_nbrs[i] = j;
-				break ;
-			}
-			j++;
-		}
-		i++;
-		j = 0;
-	}
-	free(info->copy);
-}
-
-int	*parsing(t_info *info, int argc, char **argv)
-{
-	int		i;
-	int		j;
-
-	info->all_nbrs = NULL;
-	if (argc < 2)
-		return_error(info, "Not enough arguments.");
-	info->all_nbrs = (int *)malloc(sizeof(int) * (argc - 1));
-	if (!info->all_nbrs)
-		return_error(info, "Malloc failed. Oops.");
-	i = 1;
-	j = 0;
-	while (i < argc)
-	{
-		if (!nbr_check(argv[i]))
-			return_error(info, "Not a number.");
-		info->all_nbrs[j] = ft_atoi(argv[i]);
-		i++;
-		j++;
-	}
-	if (!dup_check(info->all_nbrs, (argc - 1)))
-		return_error(info, "Found a sussy dupe.");
-	value_nbrs(info, argc);
-	j = 0;
-	while (j < argc - 1)
-	{	
-		ft_printf("%d\n", info->all_nbrs[j]);
-		j++;
-	}
-	return (info->all_nbrs);
 }

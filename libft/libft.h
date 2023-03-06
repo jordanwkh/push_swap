@@ -6,7 +6,7 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/11/26 16:48:34 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2022/10/05 14:48:47 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2023/03/02 20:43:33 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 #  define BUFFER_SIZE 100
 # endif
 
-int		ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 int		ft_isdigit(int c);
 void	*ft_bzero(void *s, size_t n);
 int		ft_isalnum(int c);

@@ -6,7 +6,7 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/14 17:45:38 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2022/02/01 17:18:25 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2023/03/02 20:43:02 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	ft_isspace(int c)
 	return (0);
 }
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	int		i;
 	long	n;
@@ -42,5 +42,5 @@ int	ft_atoi(const char *str)
 		n = (n * 10) + (str[i] - 48);
 		i++;
 	}
-	return ((int)n * sign);
+	return (n * sign);
 }

@@ -6,7 +6,7 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/03 14:43:32 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2023/01/19 18:14:38 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2023/03/02 20:39:45 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct stack
 bool	nbr_check(char *str);
 bool	dup_check(int *nbrs, int count);
 int		*parsing(t_info *info, int argc, char **argv);
-void	return_error(t_info *info, char *message);
+void	return_error(t_info *info);
 void	bubblesort(int *nbrs, int argc);
 bool	check_sort(t_stack *stack);
 void	swapping(char c, t_stack *stack);
@@ -57,4 +57,8 @@ t_stack	*lstnew(int nbr);
 bool	check_sort(t_stack *stack);
 void	sorting_3(t_stack **stack);
 void	listtest(t_stack *stack, int nbrlist);
+void	sorting_all(t_stack **stack_a, t_stack **stack_b, int len);
+void	push_lownbr_to_stack(t_stack **stack_a, t_stack **stack_b, int len);
+int		lowest_nbr_pos(t_stack **stack_a, int len);
+void	sorting_all(t_stack **stack_a, t_stack **stack_b, int len);
 #endif

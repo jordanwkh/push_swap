@@ -6,7 +6,7 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/03 14:59:37 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2023/01/19 18:44:13 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2023/03/03 18:20:59 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,14 @@ int	main(int argc, char **argv)
 	int		*nbrs;
 	int		nbr_count;
 
+	if (argc < 2)
+		return (0);
 	nbr_count = argc - 1;
 	nbrs = parsing(&info, argc, argv);
 	stack_a = start_list(&info, nbrs, nbr_count);
 	stack_b = NULL;
-	sorting_3(&stack_a);
-	// listtest(stack_a, 3);
+	if (check_sort(stack_a))
+		return (false);
+	sorting_all(&stack_a, &stack_b, nbr_count);
 	return (0);
 }
