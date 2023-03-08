@@ -6,7 +6,7 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/16 19:51:29 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2023/03/03 20:12:51 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2023/03/08 18:31:18 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,20 +88,24 @@ void	push_lownbr_to_stack(t_stack **stack_a, t_stack **stack_b, int len)
 void	radix(t_stack **stack_a, t_stack **stack_b, int len)
 {
 	int	i;
+	int	l;
 
 	i = 0;
-	while (len > 0)
+	l = 0;
+	while (!check_sort(*stack_a))
 	{
-		if ((((*stack_a)->nbrs >> i) & 1) == 1)
-			rotate('a', stack_a);
-		else
-			push('b', stack_a, stack_b);
-		len--;
-	}	
-	while (*stack_b)
-	{
-		push('a', stack_b, stack_a);
-			i++;
+		while (l < len)
+		{
+			if ((((*stack_a)->nbrs >> i) & 1) == 1)
+				rotate('a', stack_a);
+			else
+				push('b', stack_a, stack_b);
+			l++;
+		}	
+		while (*stack_b)
+			push('a', stack_b, stack_a);
+		l = 0;
+		i++;
 	}
 }
 

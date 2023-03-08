@@ -6,7 +6,7 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/03 14:43:32 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2023/03/02 20:39:45 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2023/03/08 18:26:39 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ void	duo_rev_rotate(t_stack **stack_a, t_stack **stack_b);
 void	push(char c, t_stack **src, t_stack **dest);
 t_stack	*start_list(t_info *info, int *arr, int argc);
 t_stack	*lstnew(int nbr);
-bool	check_sort(t_stack *stack);
 void	sorting_3(t_stack **stack);
 void	listtest(t_stack *stack, int nbrlist);
 void	sorting_all(t_stack **stack_a, t_stack **stack_b, int len);
