@@ -6,7 +6,7 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/05 19:11:16 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2023/03/08 18:48:37 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2023/04/04 20:17:09 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ t_stack	*start_list(t_info *info, int *arr, int nbrs_count)
 	while (i < nbrs_count)
 	{
 		stack_a->next = lstnew(arr[i]);
+		if (!stack_a->next)
+			return_error(info);
 		stack_a->next->prev = stack_a;
 		stack_a = stack_a->next;
 		i++;
