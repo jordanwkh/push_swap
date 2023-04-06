@@ -6,7 +6,7 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/03 15:45:40 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2023/03/02 20:41:43 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2023/04/06 21:38:07 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,34 @@ bool	dup_check(int *nbrs, int count)
 	return (true);
 }
 
-void	return_error(t_info *info)
+void	free_stack(t_stack *to_free)
+{
+	if (to_free->prev)
+		to_free->prev->next = NULL;
+	while (to_free->next != NULL)
+	{
+		to_free = to_free->next;
+		free(to_free->prev);
+		to_free->prev = NULL;
+	}
+	free(to_free);
+	return ;
+}
+
+void	return_error(t_info *info, bool error)
 {
 	free(info->all_nbrs);
-	ft_putendl_fd("Error", 2);
-	exit(1);
+	free(info->copy);
+	if (info->stack_a != NULL)
+		free_stack(info->stack_a);
+	if (info->stack_b != NULL)
+		free_stack(info->stack_b);
+	if (error)
+	{
+		ft_putendl_fd("Error", 2);
+		exit(1);
+	}
+	exit(0);
 }
 
 void	bubblesort(int *nbrs, int argc)

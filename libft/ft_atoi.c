@@ -6,7 +6,7 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/12/14 17:45:38 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2023/03/02 20:43:02 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2023/04/06 20:28:34 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ long	ft_atoi(const char *str)
 	{
 		n = (n * 10) + (str[i] - 48);
 		i++;
+		if (n < INT_MIN || n > INT_MAX)
+			return (((long)(INT_MAX)) + 1);
 	}
 	return (n * sign);
 }

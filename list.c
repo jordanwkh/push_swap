@@ -6,7 +6,7 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/05 19:11:16 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2023/04/04 20:17:09 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2023/04/06 21:10:49 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_stack	*lstnew(int nbr)
 		return (NULL);
 	new->nbrs = nbr;
 	new->next = NULL;
+	new->prev = NULL;
 	return (new);
 }
 
@@ -32,14 +33,14 @@ t_stack	*start_list(t_info *info, int *arr, int nbrs_count)
 
 	stack_a = lstnew(arr[0]);
 	if (!stack_a)
-		return_error(info);
+		return_error(info, true);
 	head = stack_a;
 	i = 1;
 	while (i < nbrs_count)
 	{
 		stack_a->next = lstnew(arr[i]);
 		if (!stack_a->next)
-			return_error(info);
+			return_error(info, true);
 		stack_a->next->prev = stack_a;
 		stack_a = stack_a->next;
 		i++;

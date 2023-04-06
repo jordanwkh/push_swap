@@ -6,7 +6,7 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/21 17:58:41 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2023/03/03 18:20:06 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2023/04/06 20:54:06 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ static t_stack	*freenode(t_stack **stack)
 		*stack = NULL;
 		return (freed_node);
 	}
-(*stack)->prev->next = (*stack)->next;
-(*stack)->next->prev = (*stack)->prev;
-*stack = (*stack)->next;
+	(*stack)->prev->next = (*stack)->next;
+	(*stack)->next->prev = (*stack)->prev;
+	*stack = (*stack)->next;
 	return (freed_node);
 }
 

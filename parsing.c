@@ -6,7 +6,7 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/03/02 16:51:43 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2023/03/03 17:43:24 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2023/04/06 21:03:36 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	*copy_nbrs(t_info *info, int size)
 
 	copy = (int *)malloc(sizeof(int) * size);
 	if (!copy)
-		return_error(info);
+		return_error(info, true);
 	i = 0;
 	while (i < size)
 	{
@@ -53,6 +53,7 @@ static	void	value_nbrs( t_info *info, int argc)
 		j = 0;
 	}
 	free(info->copy);
+	info->copy = NULL;
 }
 
 int	*parsing(t_info *info, int argc, char **argv)
@@ -61,25 +62,24 @@ int	*parsing(t_info *info, int argc, char **argv)
 	int		j;
 	long	temp;
 
-	info->all_nbrs = NULL;
 	info->all_nbrs = (int *)malloc(sizeof(int) * (argc - 1));
 	if (!info->all_nbrs)
-		return_error(info);
+		return_error(info, true);
 	i = 1;
 	j = 0;
 	while (i < argc)
 	{
 		if (!nbr_check(argv[i]))
-			return_error(info);
+			return_error(info, true);
 		temp = ft_atoi(argv[i]);
 		if (temp < INT_MIN || temp > INT_MAX)
-			return_error(info);
+			return_error(info, true);
 		info->all_nbrs[j] = temp;
 		i++;
 		j++;
 	}
 	if (!dup_check(info->all_nbrs, (argc - 1)))
-		return_error(info);
+		return_error(info, true);
 	value_nbrs(info, argc);
 	return (info->all_nbrs);
 }

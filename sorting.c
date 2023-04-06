@@ -6,7 +6,7 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/16 19:51:29 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2023/04/04 18:18:06 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2023/04/06 19:27:18 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,3 @@ void	sorting_all(t_stack **stack_a, t_stack **stack_b, int len)
 		}
 	}	
 }
-1 000 10
-1 111 01
-
-1 000 00

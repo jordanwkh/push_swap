@@ -6,7 +6,7 @@
 /*   By: jhoekstr <jhoekstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/03 14:43:32 by jhoekstr      #+#    #+#                 */
-/*   Updated: 2023/03/08 18:26:39 by jhoekstr      ########   odam.nl         */
+/*   Updated: 2023/04/06 21:42:03 by jhoekstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,6 @@
 # include <string.h>
 # include <limits.h>
 
-typedef struct info
-{
-	int	*all_nbrs;
-	int	*copy;
-	int	nbr_count;
-}	t_info;
-
 typedef struct stack
 {
 	int					nbrs;
@@ -39,10 +32,19 @@ typedef struct stack
 	struct stack		**stack_a;
 }	t_stack;
 
+typedef struct info
+{
+	int		*all_nbrs;
+	int		*copy;
+	int		nbr_count;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+}	t_info;
+
 bool	nbr_check(char *str);
 bool	dup_check(int *nbrs, int count);
 int		*parsing(t_info *info, int argc, char **argv);
-void	return_error(t_info *info);
+void	return_error(t_info *info, bool error);
 void	bubblesort(int *nbrs, int argc);
 bool	check_sort(t_stack *stack);
 void	swapping(char c, t_stack *stack);
